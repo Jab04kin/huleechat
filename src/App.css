@@ -1,0 +1,44 @@
+
+
+h1 {
+  background-color: #334510;
+  font-size: 20rem;
+  text-align: center;
+  margin-left: 40%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark h1 {
+  background-color: #1a2309;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+h3 {
+  background-color: olivedrab;
+  font-size: 5rem;
+  text-align: left;
+  margin-left: 1%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark h3 {
+  background-color: #4b6023;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+img {
+  width: 5%;
+  height: 5%;
+  margin-left: 10%;
+  margin-top: 2%;
+  background-size: 2rem;
+  font-family: "Desiaty sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+  color-scheme: light dark;
+  transition: filter 0.3s;
+}
+
+.dark img {
+  filter: brightness(0.8) contrast(1.2);
+}

@@ -1,0 +1,24 @@
+{
+  "Welcome": "Дарова бандиты",
+  "logout": "Выйти",
+  "title": "Хули",
+  "subtitle": "новый тип коммуникации",
+  "language": {
+    "en": "Английский",
+    "ru": "Русский"
+  },
+  "theme": {
+    "light": "Светлый режим",
+    "dark": "Темный режим"
+  },
+  "login": {
+    "title": "Вход",
+    "email": "Электронная почта",
+    "emailPlaceholder": "Введите вашу почту",
+    "password": "Пароль",
+    "passwordPlaceholder": "Введите ваш пароль",
+    "signIn": "Войти",
+    "forgotPassword": "Забыли пароль?",
+    "backToHome": "Вернуться на главную"
+  }
+}

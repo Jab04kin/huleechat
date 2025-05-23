@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@custom-variant dark (&.dark, .dark &);
+
+@font-face {
+  font-family: "Desiaty sans";
+  src: url("./assets/fonts/Desyatiy Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Desiaty sans";
+  src: url("./assets/fonts/Desyatiy Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Desiaty sans";
+  src: url("./assets/fonts/Desyatiy Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #213547; /* Light mode text color */
+  background-color: #ffffff; /* Light mode background color */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+/* Animated gradient text for buttons */
+@keyframes gradient-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.gradient-text-hover:hover {
+  background: #00D4FF;
+  background: linear-gradient(45deg, rgba(0, 212, 255, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-text 3s linear infinite;
+}
+
+/* Home page headings with Desiaty sans font */
+.home-heading {
+  font-family: "Desiaty sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.dark {
+  color: rgba(255, 255, 255, 0.87); /* Dark mode text color */
+  background-color: #242424; /* Dark mode background color */
+}
+
+/* Gradient text animation */
+@keyframes text-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text-btn {
+  background: linear-gradient(90deg, #00d4ff, #090979, #00d4ff);
+  background-size: 200% 200%;
+  animation: text-gradient 3s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+}
+
+.gradient-text-btn:hover {
+  animation: text-gradient 1.5s ease infinite;
+}
+
+.gradient-text-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.sign-in-btn {
+  composes: gradient-text-btn;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.forgot-password-btn {
+  composes: gradient-text-btn;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  display: block;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Social auth buttons */
+.social-auth-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.social-auth-btn:hover {
+  transform: translateY(-2px);
+}
+
+.social-auth-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.gradient-icon-wrapper {
+  display: inline-flex;
+  background: linear-gradient(45deg, rgba(0, 212, 255, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+  border-radius: 9999px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.gradient-icon-wrapper:hover {
+  animation: gradient 1s ease infinite;
+  transform: scale(1.1);
+}
+
+.gradient-icon-wrapper .social-icon {
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

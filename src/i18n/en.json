@@ -1,0 +1,24 @@
+{
+  "Welcome": "Welcome",
+  "logout": "logout",
+  "title": "Hulee",
+  "subtitle": "new type communication",
+  "language": {
+    "en": "English",
+    "ru": "Russian"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "signIn": "Sign In",
+    "forgotPassword": "Forgot Password?",
+    "backToHome": "Back to Home"
+  }
+}
