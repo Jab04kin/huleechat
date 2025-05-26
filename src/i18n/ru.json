@@ -13,12 +13,25 @@
   },
   "login": {
     "title": "Вход",
-    "email": "Электронная почта",
-    "emailPlaceholder": "Введите вашу почту",
-    "password": "Пароль",
-    "passwordPlaceholder": "Введите ваш пароль",
-    "signIn": "Войти",
-    "forgotPassword": "Забыли пароль?",
-    "backToHome": "Вернуться на главную"
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Пароль",
+    "rememberMe": "Запомнить меня",
+    "createAccount": "Создать аккаунт",
+    "sign_in": "Войти",
+    "signing_in": "Входим...",
+    "or_continue_with": "Или войдите через"
+  },
+  "register": {
+    "title": "Регистрация",
+    "usernamePlaceholder": "Имя пользователя",
+    "already_have_account": "Уже есть аккаунт?",
+    "sign_in": "Войти",
+    "create_account": "Зарегистрироваться",
+    "creating_account": "Регистрируем..."
+  },
+  "errors": {
+    "required": "Обязательное поле",
+    "invalid_email": "Введите корректный email",
+    "password_length": "Пароль должен быть не менее 6 символов"
   }
 }

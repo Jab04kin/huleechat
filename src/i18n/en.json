@@ -12,13 +12,26 @@
     "dark": "Dark Mode"
   },
   "login": {
-    "title": "Login",
-    "email": "Email",
-    "emailPlaceholder": "Enter your email",
-    "password": "Password",
-    "passwordPlaceholder": "Enter your password",
-    "signIn": "Sign In",
-    "forgotPassword": "Forgot Password?",
-    "backToHome": "Back to Home"
+    "title": "Sign In",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "rememberMe": "Remember me",
+    "createAccount": "Create account",
+    "sign_in": "Sign In",
+    "signing_in": "Signing in...",
+    "or_continue_with": "Or continue with"
+  },
+  "register": {
+    "title": "Create Account",
+    "usernamePlaceholder": "Username",
+    "already_have_account": "Already have an account?",
+    "sign_in": "Sign in",
+    "create_account": "Create Account",
+    "creating_account": "Creating account..."
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalid_email": "Please enter a valid email",
+    "password_length": "Password must be at least 6 characters"
   }
 }

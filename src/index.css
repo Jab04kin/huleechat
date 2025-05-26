@@ -37,6 +37,21 @@
   transition: color 0.3s, background-color 0.3s;
 }
 
+/* Header */
+header {
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.pt-20 {
+  padding-top: 5rem; /* Высота header + отступ */
+}
+
 /* Animated gradient text for buttons */
 @keyframes gradient-text {
   0% {
@@ -49,7 +64,7 @@
 
 .gradient-text-hover:hover {
   background: #00D4FF;
-  background: linear-gradient(45deg, rgba(0, 212, 255, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(45deg, rgba(0, 0, 193) 0%, rgb(0, 212, 255, 1) 50%, rgb(0, 0, 193) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -75,7 +90,7 @@
 }
 
 .gradient-text-btn {
-  background: linear-gradient(90deg, #00d4ff, #090979, #00d4ff);
+  background: linear-gradient(90deg, #00009c, #00d4ff, #00009c);
   background-size: 200% 200%;
   animation: text-gradient 3s ease infinite;
   -webkit-background-clip: text;
@@ -132,7 +147,7 @@
 
 .gradient-icon-wrapper {
   display: inline-flex;
-  background: linear-gradient(45deg, rgba(0, 212, 255, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(45deg, rgb(0, 0, 156) 0%, rgba(0, 212, 255, 0.68) 50%, rgb(0, 0, 156) 100%);
   background-size: 200% 200%;
   animation: gradient 3s ease infinite;
   border-radius: 9999px;

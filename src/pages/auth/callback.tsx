@@ -7,33 +7,73 @@ export default function AuthCallback() {
   const navigate = useNavigate()
   const { checkAuth } = useAuthStore()
 
-  useEffect(() => {
-    const handleAuth = async () => {
-      try {
-        // Получаем сессию из URL (для OAuth)
-        const { data: { session }, error } = await supabase.auth.getSessionFromUrl()
+useEffect(() => {
+  let isMounted = true;
 
-        if (error) throw error
+  const handleAuth = async () => {
+    // 1. Получение сессии
+    const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
 
-        if (session) {
-          // Сохраняем сессию
-          const { error: sessionError } = await supabase.auth.setSession(session)
-          if (sessionError) throw sessionError
-
-          // Проверяем аутентификацию
-          await checkAuth()
-        }
-
-        // Перенаправляем на главную
-        navigate('/')
-      } catch (err) {
-        console.error('Auth callback error:', err)
-        navigate('/login', { state: { error: 'Authentication failed' } })
-      }
+    if (sessionError) {
+      console.error('Session error:', sessionError);
+      if (isMounted) navigate('/login', {
+        state: { error: sessionError.message || 'Session error' }
+      });
+      return;
     }
 
-    handleAuth()
-  }, [checkAuth, navigate])
+    if (sessionData.session) {
+      // 2. Обработка существующей сессии
+      const { error: authError } = await checkAuth();
+      if (authError) {
+        console.error('Auth check failed:', authError);
+        if (isMounted) navigate('/login', { state: { error: 'Auth check failed' } });
+        return;
+      }
+      if (isMounted) navigate('/');
+      return;
+    }
+
+    // 3. Обработка OAuth callback
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const accessToken = params.get('access_token');
+    const refreshToken = params.get('refresh_token');
+
+    if (!accessToken || !refreshToken) {
+      if (isMounted) navigate('/login', { state: { error: 'Missing tokens' } });
+      return;
+    }
+
+    // 4. Установка сессии
+    const { error: setSessionError } = await supabase.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken
+    });
+
+    if (setSessionError) {
+      console.error('Set session error:', setSessionError);
+      if (isMounted) navigate('/login', {
+        state: { error: setSessionError.message || 'Session setup failed' }
+      });
+      return;
+    }
+
+    // 5. Финальная проверка аутентификации
+    const { error: finalAuthError } = await checkAuth();
+    if (finalAuthError) {
+      console.error('Final auth check failed:', finalAuthError);
+      if (isMounted) navigate('/login', { state: { error: 'Auth verification failed' } });
+      return;
+    }
+
+    if (isMounted) navigate('/');
+  };
+
+  handleAuth();
+
+  return () => { isMounted = false; };
+}, [checkAuth, navigate]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
