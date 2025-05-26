@@ -24,10 +24,13 @@ useEffect(() => {
 
     if (sessionData.session) {
       // 2. Обработка существующей сессии
-      const { error: authError } = await checkAuth();
-      if (authError) {
-        console.error('Auth check failed:', authError);
-        if (isMounted) navigate('/login', { state: { error: 'Auth check failed' } });
+      try {
+        await checkAuth();
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        if (isMounted) navigate('/login', {
+          state: { error: 'Auth check failed' }
+        });
         return;
       }
       if (isMounted) navigate('/');
@@ -60,13 +63,15 @@ useEffect(() => {
     }
 
     // 5. Финальная проверка аутентификации
-    const { error: finalAuthError } = await checkAuth();
-    if (finalAuthError) {
-      console.error('Final auth check failed:', finalAuthError);
-      if (isMounted) navigate('/login', { state: { error: 'Auth verification failed' } });
+    try {
+      await checkAuth();
+    } catch (error) {
+      console.error('Final auth check failed:', error);
+      if (isMounted) navigate('/login', {
+        state: { error: 'Auth verification failed' }
+      });
       return;
     }
-
     if (isMounted) navigate('/');
   };
 

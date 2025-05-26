@@ -20,6 +20,7 @@ interface AuthState {
   isLoginModalOpen: boolean;
   authModalType: 'login' | 'register';
   availableProviders: SocialProvider[];
+  reset: () => void;
 
   // Methods
   login: (email: string, password: string) => Promise<void>;
@@ -49,6 +50,11 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   availableProviders: [],
 
   // UI Methods
+  // Open/close login modal
+
+  // Clear errors
+  reset: () => set({ error: null }),
+
   openLoginModal: () => set({ isLoginModalOpen: true, error: null }),
   closeLoginModal: () => set({ isLoginModalOpen: false }),
   setAuthModalType: (type) => set({ authModalType: type }),

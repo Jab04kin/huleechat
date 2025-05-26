@@ -18,8 +18,9 @@ function App() {
 
   useEffect(() => {
     const initializeAuth = async () => {
-      const { error } = await checkAuth()
-      if (error) {
+      try {
+        await checkAuth()
+      } catch (error) {
         console.error('Initial auth check failed:', error)
       }
     }
